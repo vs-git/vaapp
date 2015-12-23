@@ -58,16 +58,16 @@ html, body {
     width: 100%;
     height: 100%;
     position: fixed;
-    overflow: auto; /*auto добавит вертикальный скролл на страницу ИСКЛЮЧАЯ блок закладок*/
+    overflow: hidden; /*auto добавит вертикальный скролл на страницу ИСКЛЮЧАЯ блок закладок*/
 }
 
 .rm-sheet-header {
     border-bottom: 1px solid #b7b7b7;
     height: 66px;
-    width:100%;
     min-width: 800px;
-    /*position: fixed;*/
-
+    position: fixed;
+    top: 44px;
+    width: 100%;
 }
 .rm-sheet-header .rm-icon-tabl, .rm-sheet-header .rm-icon-arr {
     float:left;
@@ -198,20 +198,14 @@ html, body {
 
 }
 .rm-sheet-footer {
-    /*height: 42px;*/
     border-top: 1px solid #b7b7b7;
-
-    position: absolute;
-    width: 100%;
-
-    padding-left:21px;
-
-    height: 101px;
-    left: 0;
     bottom: 0;
+    height: 56px;
+    left: 0;
     min-width: 900px;
-
-
+    padding-left: 21px;
+    position: fixed;
+    width: 100%;
 }
 /*
 .rm-sheet-footer:after {
@@ -270,8 +264,11 @@ html, body {
 
 .rm-tabsheet-content { /* блок между хедером и футером (мой)*/
     background-color: #fff9ae;
-    border: 1px solid #fffe00;
-
+    /*border: 1px solid #fffe00;*/
+    height: calc(100% - 167px); /*100% - (.rm-sheet-footer.height + .rm-sheet-footer.border-top+ .v-tabsheet-tabitemcell-first.height + .rm-tabsheet-content.margin-top)*/
+    margin: 66px auto;
+    overflow: auto;
+    width: 100%;
 }
 
 

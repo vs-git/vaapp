@@ -27,15 +27,15 @@ public class RmTabSheet extends TabSheet
     //tab2.setCaptionAsHtml(true);//не работает, походу баг
     tab2.setCaption("STAAR Readiness Report"); //"STAAR <br/>Readiness Report"
     //tab2.setSizeUndefined(); //не работает, вычисление ширины идет при генерации и устанавливается в аттрибуте style
-    tab2.addComponent(new ReportSheetHeader());
 
     CssLayout content = new CssLayout();
     content.setPrimaryStyleName("rm-tabsheet-content");
+    content.addComponent(new ReportSheetHeader());
     Label lbl = new Label("11111111<br>22222222<br>3333333<br>4444444<br>5555555<br>66666666<br>777777<br><br><br><br><br><br><br><br><br><br><br>11111111<br>2222222<br>3333333<br>4444444");
     lbl.setContentMode(ContentMode.HTML);
     content.addComponent(lbl);
-    tab2.addComponent(content);
 
+    tab2.addComponent(content);
     tab2.addComponent(new ReportSheetFooter());
     addTab(tab2);
     getTab(tab2).setClosable(true);
