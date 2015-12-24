@@ -25,7 +25,7 @@ public class IndexUI extends UI {
   protected void init(VaadinRequest request) {
     setTheme("default");
 
-    setWindowContent();
+    setTableSheet();//setWindowContent()
   }
 
   public void setWindowContent()
@@ -62,6 +62,66 @@ public class IndexUI extends UI {
 
     content.addComponent(new TestPrepReportRequestComponent(), "content");
     setContent(content);
+  }
+
+  protected  void setTableSheet() {
+    CssLayout layout = new CssLayout();
+    TabSheet tabsheet = new TabSheet();
+    layout.addComponent(tabsheet);
+
+    tabsheet.setTabCaptionsAsHtml(true);
+
+    VerticalLayout tab1 = new VerticalLayout();
+    tab1.addComponent(new Label("Mercury tab content"));
+    tab1.setCaptionAsHtml(true);
+    tabsheet.addTab(tab1, "<div>Mercury</div>");
+
+    VerticalLayout tab2 = new VerticalLayout();
+    tab2.addComponent(new Label("Venus tab content"));
+    tab2.setCaptionAsHtml(true);
+    tab2.setCaption("<div>Venus</div>");
+    tabsheet.addTab(tab2);
+
+    setContent(layout);
+  }
+
+  protected  void setTableSheet2() {
+    CssLayout layout = new CssLayout();
+
+
+    //getLayout().setSpacing(true);
+    TabSheet ts = new TabSheet();
+    ts.setCaption("TabSheet - no <u>html</u> in tab captions");
+    ts.setCaptionAsHtml(true);
+    ts.addTab(new Label(), "<font color='red'>red</font>");
+    ts.addTab(new Label(), "<font color='blue'>blue</font>");
+    layout.addComponent(ts);
+
+    ts = new TabSheet();
+    ts.setCaption("TabSheet - <b>html</b> in tab captions");
+    ts.setCaptionAsHtml(false);
+    ts.setTabCaptionsAsHtml(true);
+    ts.addTab(new Label(), "<font color='red'>red</font>");
+    ts.addTab(new Label(), "<font color='blue'>blue</font>");
+    layout.addComponent(ts);
+
+    Accordion acc = new Accordion();
+    acc.setCaption("Accordion - no <u>html</u> in tab captions");
+    acc.setCaptionAsHtml(true);
+    acc.addTab(new Label(), "<font color='red'>red</font>");
+    acc.addTab(new Label(), "<font color='blue'>blue</font>");
+    layout.addComponent(acc);
+
+    acc = new Accordion();
+    acc.setCaption("Accordion - <b>html</b> in tab captions");
+    acc.setCaptionAsHtml(false);
+    acc.setTabCaptionsAsHtml(true);
+    acc.addTab(new Label(), "<font color='red'>red</font>");
+    acc.addTab(new Label(), "<font color='blue'>blue</font>");
+    layout.addComponent(acc);
+
+
+    setContent(layout);
   }
 
 }

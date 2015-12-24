@@ -18,14 +18,14 @@ public class RmTabSheet extends TabSheet
     tab1.addComponent(new Label("logo"));
     addTab(tab1, null);
 
-
+    setTabCaptionsAsHtml(true);
 
 
 
     CssLayout tab2 = new CssLayout();
     tab2.addStyleName("rm-tabsheet-layout");
     //tab2.setCaptionAsHtml(true);//не работает, походу баг
-    tab2.setCaption("STAAR Readiness Report"); //"STAAR <br/>Readiness Report"
+    //tab2.setCaption("STAAR<br>Readiness Report"); // годмтся для установки названия вкладки, если она НЕ html!!! Если нужен html, заголовок ставим 2-м параметром в addTab()
     //tab2.setSizeUndefined(); //не работает, вычисление ширины идет при генерации и устанавливается в аттрибуте style
 
     CssLayout content = new CssLayout();
@@ -37,7 +37,7 @@ public class RmTabSheet extends TabSheet
 
     tab2.addComponent(content);
     tab2.addComponent(new ReportSheetFooter());
-    addTab(tab2);
+    addTab(tab2, "<span>STAAR<br>Readiness Report</span>");
     getTab(tab2).setClosable(true);
     getTab(tab2).setStyleName("rm-sheet-label");
 
@@ -49,7 +49,7 @@ public class RmTabSheet extends TabSheet
 
     CssLayout tab3 = new CssLayout();
     tab3.addComponent(new Label("Class Management Sheet Content"));
-    tab3.setCaption("Class Management");
+    tab3.setCaption("<span>Class Management</span>");
     addTab(tab3);
     getTab(tab3).setClosable(true);
     getTab(tab3).setStyleName("rm-sheet-label");
